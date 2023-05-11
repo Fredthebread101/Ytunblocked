@@ -1,0 +1,12 @@
+const form = document.querySelector('#search-form');
+const input = document.querySelector('#search-input');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const query = input.value.trim();
+    if (query.startsWith('http://') || query.startsWith('https://')) {
+        window.location.href = query;
+    } else {
+        window.location.href = `https://www.google.com/search?q=${query}`;
+    }
+});
